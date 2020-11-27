@@ -14,7 +14,7 @@ class stack:
             return True
         else:
             return False
-B=[]       
+B=[1,2,43,14,56]       #произвольный массив
 xstack=stack(B)
 print(xstack.X())       #вместо X подставить нужную функцию
         
