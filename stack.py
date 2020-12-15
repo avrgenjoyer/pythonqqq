@@ -1,6 +1,6 @@
 class Element:
-    def __init__(self, num):
-        self.num = num
+    def __init__(self, value):
+        self.value = value
         self.prev = None
         self.next = None
 
@@ -8,11 +8,10 @@ class Stack:
 
     def __init__(self):
         self.head = None
-        self.tail = None
-        self.lent = 0
+        self.length = 0
 
-    def push(self, num):
-        element = Element(num)
+    def push(self, value):
+        element = Element(value)
         if self.head is None:
             self.head = element
         else:
@@ -20,24 +19,26 @@ class Stack:
             self.head.next = element    
             self.head = element        
 
-        if self.tail is None:
-            self.tail = element
-
-        self.lent += 1
+        self.length += 1
     
     def pop(self):
+        self.length -=1
         if self.head is None:
-            print("Error")
+            return None
         else:
+            k = self.head
             self.head = self.head.prev
-        self.lent -=1
+            return k
     def top(self):
-        return self.head
+        return self.head.value
     def size(self):
-        return self.lent
-    def clear(self):
-        if self.lent !=0:
+        return self.length
+    def is_empty(self):
+        if self.length !=0:
             return False
         else:
             return True
-            
+    def clear(self):
+        while self.head != None:
+            self.head = self.head.prev
+        self.length = 0
