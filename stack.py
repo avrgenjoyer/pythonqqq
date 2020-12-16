@@ -39,7 +39,7 @@ class Stack:
         return self.length
 
     def is_empty(self):
-        if self.length != 0:
+        if self.head is not None:
             return False
         else:
             return True
