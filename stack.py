@@ -21,12 +21,12 @@ class Stack:
         self.length += 1
 
     def pop(self):
-        self.length -= 1
         if self.head is None:
             return None
         else:
             k = self.head
             self.head = self.head.prev
+            self.length -= 1
             return k.value
 
     def top(self):
