@@ -30,13 +30,16 @@ class Stack:
             return k.value
 
     def top(self):
-        return self.head.value
+        if self.length == 0:
+            return None
+        else:
+            return self.head.value
 
     def size(self):
         return self.length
 
     def is_empty(self):
-        if self.length != 0:
+        if self.head is not None:
             return False
         else:
             return True
